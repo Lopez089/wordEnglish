@@ -1,23 +1,6 @@
 import Head from 'next/head'
-
-const Button = ({ children, handleClick }) => {
-  return (
-    <button>{children}</button>
-  )
-}
-
-const FormAddWord = () => {
-  return (
-    <>
-      <h2>Add</h2>
-      <form>
-        <input type='text' placeholder='word English' />
-        <input type='text' placeholder='word Spanish' />
-        <Button>Add Word</Button>
-      </form>
-    </>
-  )
-}
+import FormAddWord from '../components/formAddWord'
+import Button from '../components/button'
 
 const Home = () => {
   return (

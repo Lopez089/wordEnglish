@@ -45,7 +45,7 @@ const Practice = () => {
         }
 
         )
-      if (countNow >= 4) {
+      if (countNow >= 10) {
         firebase.firestore().collection('word').doc(wordSuccess[0].id).delete()
           .then((data) => console.log('eliminado bien'))
       } else {

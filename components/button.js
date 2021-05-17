@@ -1,6 +1,11 @@
 const Button = ({ children, handleClick }) => {
   return (
-    <button>{children}</button>
+    <button
+      onClick={
+      handleClick ? (e) => handleClick(e) : null
+}
+    >{children}
+    </button>
   )
 }
 

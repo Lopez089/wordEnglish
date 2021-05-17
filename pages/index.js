@@ -1,6 +1,7 @@
+import Button from '../components/button'
 import Head from 'next/head'
 import FormAddWord from '../components/formAddWord'
-import Button from '../components/button'
+import Link from 'next/link'
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
           <FormAddWord />
         </section>
         <section>
-          <Button>Practice</Button>
+          <Link href='/practice'>Practice</Link>
         </section>
       </main>
     </div>

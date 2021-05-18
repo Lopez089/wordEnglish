@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDAh3ShBp_07zlrRhh7I_Z1gFDkwEmhi_E',

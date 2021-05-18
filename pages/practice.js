@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import Button from '../components/button'
+import ButtonOnclick from '../components/button'
+import { Button, Container, Form, Row } from 'react-bootstrap'
 
 const Practice = () => {
   const [word, setWord] = useState([])
@@ -82,16 +83,26 @@ const Practice = () => {
     setWordSpanish('')
   }
   return (
+    <main className='vh-100'>
+      <Container className='h-50 d-flex justify-content-center align-items-center'>
+        <Row>
 
-    <>
-      {word[showWord] ? word[showWord].data.english : 'Todo finalizado'}
-      {message}
-      <form>
-        <input onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
-        <Button handleClick={handleCheck}>comprobar</Button>
-      </form>
-      <button onClick={haldleNext}>siguiente</button>
-    </>
+          <h1 ClassName='fs-1 text-center'>
+            {word[showWord] ? word[showWord].data.english : 'Todo finalizado'}
+          </h1>
+          <p className='fs-6 text-muted'>{message}</p>
+          <Form>
+            <Form.Control onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
+            <ButtonOnclick handleClick={handleCheck}>comprobar</ButtonOnclick>
+          </Form>
+        </Row>
+      </Container>
+      <Container className='d-flex justify-content-center align-items-center'>
+
+        <Button onClick={haldleNext}>siguiente</Button>
+
+      </Container>
+    </main>
   )
 }
 

@@ -1,12 +1,14 @@
-const Button = ({ children, handleClick }) => {
+import { Button } from 'react-bootstrap'
+
+const ButtonOnclick = ({ children, handleClick }) => {
   return (
-    <button
+    <Button
       onClick={
       handleClick ? (e) => handleClick(e) : null
 }
     >{children}
-    </button>
+    </Button>
   )
 }
 
-export default Button
+export default ButtonOnclick

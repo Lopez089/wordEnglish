@@ -87,21 +87,30 @@ const Practice = () => {
       <Container className='h-50 d-flex justify-content-center align-items-center'>
         <Row>
 
-          <h1 ClassName='fs-1 text-center'>
-            {word[showWord] ? word[showWord].data.english : 'Todo finalizado'}
+          <h1 className='h1 text-center'>
+            {word[showWord] ? word[showWord].data.english : ''}
           </h1>
-          <p className='fs-6 text-muted'>{message}</p>
+
           <Form>
             <Form.Control onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
-            <ButtonOnclick handleClick={handleCheck}>comprobar</ButtonOnclick>
+
+            <section className='fixed-bottom h-25 bg-light d-flex justify-content-center align-items-center'>
+
+              {message === ''
+                ? <ButtonOnclick disabled handleClick={handleCheck}>comprobar</ButtonOnclick>
+
+                : (
+                  <div className='flex-colunm  justify-content-center align-items-center'>
+                    <p className='fs-6 text-muted'>{message}</p>
+                    <Button onClick={haldleNext}>siguiente</Button>
+                  </div>
+                  )}
+
+            </section>
           </Form>
         </Row>
       </Container>
-      <Container className='d-flex justify-content-center align-items-center'>
-
-        <Button onClick={haldleNext}>siguiente</Button>
-
-      </Container>
+      <Container className='d-flex justify-content-center align-items-center' />
     </main>
   )
 }

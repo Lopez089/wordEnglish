@@ -59,7 +59,7 @@ const Practice = () => {
 
       console.log(countNow)
     } else {
-      setMessage(`incorrecto la palabra correcta es ${word[showWord].data.spanish}`)
+      setMessage(`incorrecto la palabra correcta es  ${word[showWord].data.spanish}`)
       const Word = [...word]
       const wordFail = Word.splice(0, 1)
       // console.log({ wordFail })
@@ -87,12 +87,12 @@ const Practice = () => {
       <Container className='h-50 d-flex justify-content-center align-items-center'>
         <Row>
 
-          <h1 className='h1 text-center'>
+          <h1 className='display-1 text-center mb-3'>
             {word[showWord] ? word[showWord].data.english : ''}
           </h1>
 
           <Form>
-            <Form.Control onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
+            <Form.Control className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
 
             <section className='fixed-bottom h-25 bg-light d-flex justify-content-center align-items-center'>
 
@@ -100,8 +100,8 @@ const Practice = () => {
                 ? <ButtonOnclick disabled handleClick={handleCheck}>comprobar</ButtonOnclick>
 
                 : (
-                  <div className='flex-colunm  justify-content-center align-items-center'>
-                    <p className='fs-6 text-muted'>{message}</p>
+                  <div className='d-flex flex-column justify-items-center align-items-center'>
+                    <p className='fs-5 lead'>{message}</p>
                     <Button onClick={haldleNext}>siguiente</Button>
                   </div>
                   )}

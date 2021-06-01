@@ -12,7 +12,7 @@ const Practice = () => {
   const [message, setMessage] = useState('')
 
   useEffect(() => {
-    firebase.firestore().collection('word').get()
+    firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).get()
       .then(querySnapshot =>
 
         querySnapshot.forEach((doc) => {
@@ -40,17 +40,17 @@ const Practice = () => {
 
       setNewStateWord(Word)
       let countNow
-      await firebase.firestore().collection('word').doc(wordSuccess[0].id).get()
+      await firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).doc(wordSuccess[0].id).get()
         .then(querySnapshot => {
           countNow = querySnapshot.data().count
         }
 
         )
       if (countNow >= 10) {
-        firebase.firestore().collection('word').doc(wordSuccess[0].id).delete()
+        firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).doc(wordSuccess[0].id).delete()
           .then((data) => console.log('eliminado bien'))
       } else {
-        firebase.firestore().collection('word').doc(wordSuccess[0].id).set(
+        firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).doc(wordSuccess[0].id).set(
           { count: countNow + 1 }, { merge: true }
         )
       }
@@ -65,7 +65,7 @@ const Practice = () => {
       // console.log({ wordFail })
       // console.log({ Word })
 
-      firebase.firestore().collection('word').doc(wordFail[0].id).set(
+      firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).doc(wordFail[0].id).set(
         { count: 0 }, { merge: true }
       )
 

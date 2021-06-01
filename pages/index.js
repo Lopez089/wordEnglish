@@ -1,4 +1,3 @@
-import Button from '../components/button'
 import Head from 'next/head'
 import FormAddWord from '../components/formAddWord'
 import Link from 'next/link'

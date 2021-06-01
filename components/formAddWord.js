@@ -23,7 +23,7 @@ const FormAddWord = () => {
 
     console.table({ spanish, english })
 
-    firebase.firestore().collection('word').add({
+    firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).add({
       spanish, english, count: 0
     })
 

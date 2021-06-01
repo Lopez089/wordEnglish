@@ -2,6 +2,7 @@ import Button from '../components/button'
 import { useState } from 'react'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import { Form } from 'react-bootstrap'
 
 // TODO:
 // test and refactor
@@ -33,12 +34,18 @@ const FormAddWord = () => {
 
   return (
     <>
-      <h2>Add Word</h2>
-      <form>
-        <input type='text' placeholder='word English' value={english} onChange={(e) => handleOnchageEnglish(e)} />
-        <input type='text' placeholder='word Spanish' value={spanish} onChange={(e) => handleOnchageSpanish(e)} />
-        <Button handleClick={handleSubmit}>Add </Button>
-      </form>
+      <h2 className=' display-1 text-center mb-3'>Add Word</h2>
+      <Form>
+        <Form.Group className='mt-3'>
+          <Form.Control type='text' placeholder='word English' value={english} onChange={(e) => handleOnchageEnglish(e)} />
+        </Form.Group>
+        <Form.Group className='mt-3'>
+          <Form.Control type='text' placeholder='word Spanish' value={spanish} onChange={(e) => handleOnchageSpanish(e)} />
+        </Form.Group>
+        <Form.Group className='mt-3 d-grid'>
+          <Button handleClick={handleSubmit}>Add </Button>
+        </Form.Group>
+      </Form>
     </>
   )
 }

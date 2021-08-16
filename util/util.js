@@ -1,6 +1,13 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
+export const wordFailEnd = (word, setNewStateWord) => {
+  const Word = [...word]
+  const wordFail = Word.splice(0, 1)
+  // setNewStateWord(Word.concat(wordFail))
+  return (Word.concat(wordFail))
+}
+
 export const handleOnchage = (e, setWordSpanish) => {
   setWordSpanish(e.target.value)
 }
@@ -46,9 +53,10 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
   }
 }
 
-export const haldleNext = (newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish) => {
+export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish) => {
   if (newStateWord !== []) {
-    setWord(newStateWord)
+    console.log({ word })
+    setWord(wordFailEnd(word, setNewStateWord))
   }
 
   setNewStateWord([])

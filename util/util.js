@@ -55,3 +55,11 @@ export const haldleNext = (newStateWord, setWord, setNewStateWord, setMessage, s
   setMessage('')
   setWordSpanish('')
 }
+
+export const handleshowTooltip = (showTooltip, setshowTooltip) => {
+  setshowTooltip(!showTooltip)
+
+  setTimeout(() => {
+    setshowTooltip(showTooltip)
+  }, 3000)
+}

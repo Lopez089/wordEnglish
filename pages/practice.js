@@ -111,7 +111,7 @@ const Practice = () => {
           </h1>
           <Overlay target={target.current} show={showTooltip} placement='top'>
             <Tooltip id='tooltip-top'>
-              <strong>{word[showWord].data.spanish}</strong>
+              <strong>{word[showWord] ? word[showWord].data.spanish : ''}</strong>
             </Tooltip>
 
           </Overlay>

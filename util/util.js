@@ -45,3 +45,13 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
     setNewStateWord(Word.concat(wordFail))
   }
 }
+
+export const haldleNext = (newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish) => {
+  if (newStateWord !== []) {
+    setWord(newStateWord)
+  }
+
+  setNewStateWord([])
+  setMessage('')
+  setWordSpanish('')
+}

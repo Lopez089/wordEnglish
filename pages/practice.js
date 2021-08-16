@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import ButtonOnclick from '../components/button'
-import { Button, Container, Form, Row } from 'react-bootstrap'
+import { Button, Container, Form, Row, Tooltip, Overlay } from 'react-bootstrap'
 import Link from 'next/link'
 
 const Practice = () => {
@@ -11,7 +11,9 @@ const Practice = () => {
   const [showWord, setShowWord] = useState(0)
   const [wordSpanish, setWordSpanish] = useState('')
   const [message, setMessage] = useState('')
-
+  const [showTooltip, setshowTooltip] = useState(false)
+  const target = useRef(null)
+  console.log(word)
   useEffect(() => {
     firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).get()
       .then(querySnapshot =>
@@ -83,6 +85,15 @@ const Practice = () => {
     setMessage('')
     setWordSpanish('')
   }
+
+  const handleshowTooltip = () => {
+    setshowTooltip(!showTooltip)
+
+    setTimeout(() => {
+      setshowTooltip(showTooltip)
+    }, 3000)
+  }
+
   return (
     <main className='vh-100'>
       <Button variant='outline-secondary' className='m-4'>
@@ -95,10 +106,15 @@ const Practice = () => {
       <Container className='h-50 d-flex justify-content-center align-items-center'>
         <Row>
 
-          <h1 className='display-1 text-center mb-3'>
+          <h1 className='display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip()}>
             {word[showWord] ? word[showWord].data.english : ''}
           </h1>
+          <Overlay target={target.current} show={showTooltip} placement='top'>
+            <Tooltip id='tooltip-top'>
+              <strong>{word[showWord].data.spanish}</strong>
+            </Tooltip>
 
+          </Overlay>
           <Form>
             <Form.Control className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e)} type='text' value={wordSpanish} />
 
@@ -112,7 +128,7 @@ const Practice = () => {
                     <p className='fs-5 lead'>{message}</p>
                     <Button onClick={haldleNext}>siguiente</Button>
                   </div>
-                  )}
+                )}
 
             </section>
           </Form>

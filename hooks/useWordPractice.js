@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { handleOnchage, handleCheck, haldleNext } from '../util/util'
+import { handleOnchage, handleCheck, haldleNext, handleshowTooltip } from '../util/util'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -26,15 +26,7 @@ export const useWordPractice = () => {
       )
   }, [])
 
-  const handleshowTooltip = () => {
-    setshowTooltip(!showTooltip)
-
-    setTimeout(() => {
-      setshowTooltip(showTooltip)
-    }, 3000)
-  }
-
   return {
-    word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord
+    word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord, setshowTooltip
   }
 }

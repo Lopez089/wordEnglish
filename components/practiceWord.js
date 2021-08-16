@@ -17,13 +17,19 @@ export const PracticeWord = () => {
       </h1>
       <Form>
         <Form.Control ref={target} className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e, setWordSpanish)} type='text' value={wordSpanish} />
-        <section className='fixed-bottom h-25 bg-light d-flex justify-content-center align-items-center'>
+        <section className='fixed-bottom h-25 bg-light d-flex align-items-center'>
+
           {message === ''
-            ? <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord)}>comprobar</ButtonOnclick>
-            : (<div className='d-flex flex-column justify-items-center align-items-center'>
-              <p className='fs-5 lead'>{message}</p>
-              <Button onClick={() => haldleNext(newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
-            </div>)}
+            ? (<div className='w-100 d-flex flex-row justify-content-around '>
+              <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord)}>comprobar</ButtonOnclick>
+              <Button onClick={() => haldleNext(word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
+            </div>)
+
+            : (
+              <div className='w-100 d-flex flex-column justify-items-center align-items-center'>
+                <p className='fs-5 lead text-center'>{message}</p>
+                <Button onClick={() => haldleNext(word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
+              </div>)}
 
         </section>
       </Form>

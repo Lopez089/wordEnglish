@@ -4,7 +4,7 @@ import { Button, Form, Tooltip, Overlay } from 'react-bootstrap'
 import { useWordPractice } from '../hooks/useWordPractice'
 
 export const PracticeWord = () => {
-  const { word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord } = useWordPractice()
+  const { word, showWord, wordSpanish, message, target, showTooltip, newStateWord, setWord, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord } = useWordPractice()
   return (
     <>
       <h1 className='display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip()}>
@@ -25,7 +25,7 @@ export const PracticeWord = () => {
             ? <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord)}>comprobar</ButtonOnclick>
             : (<div className='d-flex flex-column justify-items-center align-items-center'>
               <p className='fs-5 lead'>{message}</p>
-              <Button onClick={haldleNext}>siguiente</Button>
+              <Button onClick={() => haldleNext(newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
             </div>)}
 
         </section>

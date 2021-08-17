@@ -21,7 +21,7 @@ export const PracticeWord = () => {
 
           {message === ''
             ? (<div className='w-100 d-flex flex-row justify-content-around '>
-              <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord)}>comprobar</ButtonOnclick>
+              <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord)}>comprobar</ButtonOnclick>
               <Button onClick={() => haldleNext(word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
             </div>)
 

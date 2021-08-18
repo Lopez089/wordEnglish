@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-export const wordFailEnd = (word, setNewStateWord) => {
+export const wordNextEnd = (word) => {
   const Word = [...word]
   const wordFail = Word.splice(0, 1)
   // setNewStateWord(Word.concat(wordFail))
@@ -12,7 +12,7 @@ export const handleOnchage = (e, setWordSpanish) => {
   setWordSpanish(e.target.value)
 }
 
-export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord) => {
+export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord) => {
   if (wordSpanish === word[showWord].data.spanish) {
     setMessage('correcto')
     const Word = [...word]
@@ -36,8 +36,6 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
     }
 
     setShowWord(0)
-
-    console.log(countNow)
   } else {
     setMessage(`incorrecto la palabra correcta es  ${word[showWord].data.spanish}`)
     const Word = [...word]
@@ -53,11 +51,18 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
   }
 }
 
-export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish) => {
-  if (newStateWord !== []) {
+export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish, nextWordUser) => {
+  if (newStateWord.length !== 0) {
     console.log({ word })
-    setWord(wordFailEnd(word, setNewStateWord))
+    setWord(newStateWord)
+  } else {
+    if (word.length === 1) {
+      setWordSpanish('')
+      setWord([])
+      return
+    }
   }
+  if (newStateWord.length === 0) setWord(wordNextEnd(word))
 
   setNewStateWord([])
   setMessage('')

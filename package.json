@@ -10,6 +10,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@primer/octicons-react": "^15.0.1",
     "bootstrap": "^5.0.1",
     "firebase": "^8.6.1",
     "next": "10.2.0",

@@ -12,7 +12,7 @@ const Practice = () => {
           </svg>
         </Link>
       </Button>
-      <Container className='h-50 d-flex justify-content-center align-items-center'>
+      <Container className=' d-flex justify-content-center align-items-center'>
         <Row>
           <PracticeWord />
         </Row>

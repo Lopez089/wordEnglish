@@ -32,7 +32,7 @@ export const PracticeWord = () => {
               <strong>{word[showWord] ? word[showWord].data.spanish : ''}</strong>
             </Tooltip>
           </Overlay>
-          <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(showTooltip, setshowTooltip)}>
+          <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(setshowTooltip)}>
             {word[showWord] ? word[showWord].data.english : ''}
           </h1>
           <Form>

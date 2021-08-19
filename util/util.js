@@ -75,10 +75,10 @@ export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMess
   setWordSpanish('')
 }
 
-export const handleshowTooltip = (showTooltip, setshowTooltip) => {
-  setshowTooltip(!showTooltip)
+export const handleshowTooltip = (setshowTooltip) => {
+  setshowTooltip(true)
 
   setTimeout(() => {
-    setshowTooltip(showTooltip)
+    setshowTooltip(false)
   }, 3000)
 }

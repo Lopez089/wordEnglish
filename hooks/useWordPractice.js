@@ -34,6 +34,6 @@ export const useWordPractice = () => {
   }, [word])
 
   return {
-    progressBar, word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord, setshowTooltip
+    totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord, setshowTooltip
   }
 }

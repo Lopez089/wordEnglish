@@ -27,14 +27,16 @@ export const PracticeWord = () => {
           <div className='p5 mb-3 mt-5'>
             <ProgressBar variant='warning' now={progressBar} />
           </div>
-          <Overlay target={target.current} show={showTooltip} placement='top'>
-            <Tooltip id='tooltip-top'>
-              <strong>{word[showWord] ? word[showWord].data.spanish : ''}</strong>
-            </Tooltip>
-          </Overlay>
-          <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(setshowTooltip)}>
-            {word[showWord] ? word[showWord].data.english : ''}
-          </h1>
+          <div>
+            <Overlay target={target.current} show={showTooltip}>
+              <Tooltip>
+                <strong>{word[showWord] ? word[showWord].data.spanish : ''}</strong>
+              </Tooltip>
+            </Overlay>
+            <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(setshowTooltip)}>
+              {word[showWord] ? word[showWord].data.english : ''}
+            </h1>
+          </div>
           <Form>
             <Form.Control ref={target} className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e, setWordSpanish)} type='text' value={wordSpanish} />
             <section className='fixed-bottom h-25 bg-light d-flex align-items-center'>

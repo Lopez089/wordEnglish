@@ -19,7 +19,7 @@ const MessageSuccees = () => {
 }
 
 export const PracticeWord = () => {
-  const { totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, newStateWord, setWord, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setshowTooltip } = useWordPractice()
+  const { hasPushTooltip, setHasPushTooltip, totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, newStateWord, setWord, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setshowTooltip } = useWordPractice()
   return (
     <>
       {word.length === 0 && totalNumberWord !== 0 ? <MessageSuccees />
@@ -33,7 +33,7 @@ export const PracticeWord = () => {
                 <strong>{word[showWord] ? word[showWord].data.spanish : ''}</strong>
               </Tooltip>
             </Overlay>
-            <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(setshowTooltip)}>
+            <h1 className='mt-5 display-1 text-center mb-3' ref={target} onClick={() => handleshowTooltip(setshowTooltip, setHasPushTooltip)}>
               {word[showWord] ? word[showWord].data.english : ''}
             </h1>
           </div>
@@ -41,17 +41,20 @@ export const PracticeWord = () => {
             <Form.Control ref={target} className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e, setWordSpanish)} type='text' value={wordSpanish} />
             <section className='fixed-bottom h-25 bg-light d-flex align-items-center'>
 
-              {message === ''
+              {message === '' && !hasPushTooltip
                 ? (<div className='w-100 d-flex flex-row justify-content-around '>
                   <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord)}>comprobar</ButtonOnclick>
                   <Button onClick={() => haldleNext(word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
                 </div>)
 
-                : (
-                  <div className='w-100 d-flex flex-column justify-items-center align-items-center'>
-                    <p className='fs-5 lead text-center'>{message}</p>
-                    <Button onClick={() => haldleNext(word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
-                  </div>)}
+                : null}
+
+              {hasPushTooltip || message !== ''
+                ? <div className='w-100 d-flex flex-column justify-items-center align-items-center'>
+                  <p className='fs-5 lead text-center'>{message}</p>
+                  <Button onClick={() => haldleNext(setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
+                </div>
+                : null}
 
             </section>
           </Form>

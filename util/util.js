@@ -57,7 +57,7 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
   }
 }
 
-export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish, nextWordUser) => {
+export const haldleNext = (setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish, nextWordUser) => {
   if (newStateWord.length !== 0) {
     console.log({ word })
     setWord(newStateWord)
@@ -70,13 +70,15 @@ export const haldleNext = (word, newStateWord, setWord, setNewStateWord, setMess
   }
   if (newStateWord.length === 0) setWord(wordNextEnd(word))
 
+  setHasPushTooltip(false)
   setNewStateWord([])
   setMessage('')
   setWordSpanish('')
 }
 
-export const handleshowTooltip = (setshowTooltip) => {
+export const handleshowTooltip = (setshowTooltip, setHasPushTooltip) => {
   setshowTooltip(true)
+  setHasPushTooltip(true)
 
   setTimeout(() => {
     setshowTooltip(false)

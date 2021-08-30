@@ -12,6 +12,7 @@ export const useWordPractice = () => {
   const [wordSpanish, setWordSpanish] = useState('')
   const [message, setMessage] = useState('')
   const [showTooltip, setshowTooltip] = useState(false)
+  const [hasPushTooltip, setHasPushTooltip] = useState(false)
   const target = useRef(null)
   useEffect(() => {
     firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).get()
@@ -34,6 +35,6 @@ export const useWordPractice = () => {
   }, [word])
 
   return {
-    totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord, setshowTooltip
+    hasPushTooltip, setHasPushTooltip, totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, handleOnchage, handleCheck, haldleNext, newStateWord, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setWord, setshowTooltip
   }
 }

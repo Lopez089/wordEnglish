@@ -84,3 +84,35 @@ export const handleshowTooltip = (setshowTooltip, setHasPushTooltip) => {
     setshowTooltip(false)
   }, 3000)
 }
+
+const randomNumber = (min, max) => {
+  return Math.floor((Math.random() * (max - min + 1)) + min);
+
+}
+
+export const newArray = (userSelect, array) => {
+  let inicialArray = array
+
+  // devolver todo el array si hay menos elemento de los que el usuario pide
+  if (inicialArray.length <= userSelect) { return inicialArray }
+
+  // el array que retornar
+  let newArray = []
+
+  // for de los elemento y extraemos random
+  for (let b = 0; (b < userSelect); b++) {
+
+    // tener un numero random desde 1 a el numero que tien el array inicial
+
+    let numberRandom = randomNumber(0, inicialArray.length - 1)
+
+    // push elemento select to newarray
+    newArray.push(inicialArray[numberRandom])
+
+    // extraer elemento 
+    const elemetExtract = inicialArray.splice(numberRandom, 1)
+
+  }
+
+  return newArray
+}

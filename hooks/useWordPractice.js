@@ -33,7 +33,7 @@ export const useWordPractice = () => {
         })
 
 
-        setTotalNumberWord(AllWordGetDB.length)
+        setTotalNumberWord(15)
         setWord(newArray(15, AllWordGetDB))
       }
 

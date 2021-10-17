@@ -38,7 +38,7 @@ export const PracticeWord = () => {
               ? <Message message={message.message} type={message.type} word={message.word} /> : null}
 
 
-            <section className='fixed-bottom h-25 bg-light d-flex align-items-center'>
+            <section className='fixed-bottom p-4 bg-light d-flex align-items-center'>
 
               {message === '' && !hasPushTooltip
                 ? (<div className='w-100 d-flex flex-row justify-content-around '>

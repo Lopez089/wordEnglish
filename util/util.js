@@ -20,7 +20,14 @@ export const handleOnchage = (e, setWordSpanish) => {
 
 export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord) => {
   if (wordSpanish === word[showWord].data.spanish) {
-    setMessage('correcto')
+
+    const message = {
+      type: 'success',
+      message: '✔️ Palabra correcta',
+      word: word[showWord].data.spanish
+    }
+
+    setMessage(message)
     const Word = [...word]
     const wordSuccess = Word.splice(0, 1)
 
@@ -43,7 +50,14 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
 
     setShowWord(0)
   } else {
-    setMessage(`incorrecto la palabra correcta es  ${word[showWord].data.spanish}`)
+
+    const message = {
+      type: 'danger',
+      message: '❌ icorecto la palacra corecta es',
+      word: word[showWord].data.spanish
+    }
+
+    setMessage(message)
     const Word = [...word]
     const wordFail = Word.splice(0, 1)
     // console.log({ wordFail })

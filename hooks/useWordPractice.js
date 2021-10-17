@@ -41,7 +41,7 @@ export const useWordPractice = () => {
   }, [])
 
   useEffect(() => {
-    setProgressBar(calculateProgress(totalNumberWord, word))
+    setProgressBar(calculateProgress(totalNumberWord, 15 - word.length))
   }, [word])
 
   return {

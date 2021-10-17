@@ -1,10 +1,14 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-export const calculateProgress = (totalNumberWord, word) => {
-  const woldMissing = (totalNumberWord - word.length)
-  const calculate = (woldMissing / totalNumberWord) * 100
-  return calculate
+export const calculateProgress = (wordLength, totalNumberWord) => {
+
+  return ((100 * totalNumberWord) / wordLength)
+
+
+  // const woldMissing = (totalNumberWord - wordLength)
+  // const calculate = (woldMissing / totalNumberWord) * 100
+  //return calculate
 }
 
 export const wordNextEnd = (word) => {

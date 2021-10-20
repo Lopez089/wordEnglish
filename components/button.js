@@ -5,8 +5,8 @@ const ButtonOnclick = ({ children, handleClick, disabled }) => {
     <Button
       {...disabled || null}
       onClick={
-      handleClick ? (e) => handleClick(e) : null
-}
+        handleClick ? (e) => handleClick(e) : null
+      }
     >{children}
     </Button>
   )

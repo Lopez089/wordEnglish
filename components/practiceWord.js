@@ -5,15 +5,13 @@ import { useWordPractice } from '../hooks/useWordPractice'
 import { Message } from '../components/message'
 import { calculateProgress } from '../util/util'
 
-
 const messageFinish = {
   type: 'primary',
-  message: 'Finalizado con exito vuelve mañana para mas y major 💪',
+  message: 'Finalizado con exito vuelve mañana para mas y major 💪'
 
 }
 
-const ProgressWord = ({ calculateProgress, completeWord }) => {
-
+export const ProgressWord = ({ completeWord }) => {
   const progressWord = calculateProgress(10, completeWord)
   const colorProgress = progressWord < 33 ? 'danger' : progressWord < 66 ? 'warning' : 'success'
 
@@ -25,7 +23,6 @@ const ProgressWord = ({ calculateProgress, completeWord }) => {
     </div>
   )
 }
-
 
 export const PracticeWord = () => {
   const { hasPushTooltip, setHasPushTooltip, totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, newStateWord, setWord, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setshowTooltip } = useWordPractice()
@@ -49,15 +46,11 @@ export const PracticeWord = () => {
 
           </div>
 
-
-
           <Form>
             <Form.Control ref={target} className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e, setWordSpanish)} type='text' value={wordSpanish} />
 
-
             {message !== ''
               ? <Message message={message.message} type={message.type} word={message.word} /> : null}
-
 
             <section className='fixed-bottom p-4 bg-light d-flex align-items-center'>
 

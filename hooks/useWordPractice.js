@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { handleOnchage, handleCheck, haldleNext, handleshowTooltip, calculateProgress } from '../util/util'
+import { handleOnchage, handleCheck, haldleNext, handleshowTooltip, calculateProgress, newArray } from '../util/util'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import { newArray } from '../util/util'
 
 export const useWordPractice = () => {
   const [word, setWord] = useState([])
@@ -16,11 +15,9 @@ export const useWordPractice = () => {
   const [hasPushTooltip, setHasPushTooltip] = useState(false)
   const target = useRef(null)
 
-
   useEffect(() => {
     firebase.firestore().collection(process.env.NEXT_PUBLIC_COLLECTION).get()
       .then(querySnapshot => {
-
         const AllWordGetDB = []
 
         querySnapshot.forEach((doc) => {
@@ -29,9 +26,7 @@ export const useWordPractice = () => {
             data: doc.data()
           }
           AllWordGetDB.push(newState)
-
         })
-
 
         setTotalNumberWord(15)
         setWord(newArray(15, AllWordGetDB))

@@ -1,13 +1,21 @@
+import { ItemListWord } from '../../components/itemListWord'
+
 export const AllWordContainer = ({ words }) => {
-	return (
-		<ul aria-label='words-heading'>
-			{
-				words.map(word => {
-					return (
-						<li key={word.key}>{word.wordEnglish}</li>
-					)
-				})
-			}
-		</ul>
-	)
+  return (
+    <ul aria-label='words-heading'>
+      {
+        words.map(word => {
+          return (
+            <ItemListWord
+              key={word.key}
+              word={word.wordEnglish}
+              count={word.count}
+              handleRemove={() => console.log('remove')}
+              handleEdit={() => console.log('edit')}
+            />
+          )
+        })
+      }
+    </ul>
+  )
 }

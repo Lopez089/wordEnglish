@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "eslint": "standard --fix",
+    "eslint": "standard",
+    "eslint:fix": "standard --fix",
     "test": "jest --watch"
   },
   "dependencies": {

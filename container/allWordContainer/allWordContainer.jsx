@@ -7,7 +7,7 @@ export const AllWordContainer = ({ words }) => {
         words.map(word => {
           return (
             <ItemListWord
-              key={word.key}
+              key={word.id}
               word={word.wordEnglish}
               count={word.count}
               handleRemove={() => console.log('remove')}

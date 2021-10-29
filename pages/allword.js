@@ -31,9 +31,7 @@ const Home = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='vh-100'>
-        pageAllWord
-
+      <main className='p-2'>
         <AllWordContainer words={words} />
       </main>
     </div>

@@ -1,8 +1,9 @@
+import { ListGroup } from 'react-bootstrap'
 import { ItemListWord } from '../../components/itemListWord'
 
 export const AllWordContainer = ({ words }) => {
   return (
-    <ul aria-label='words-heading'>
+    <ListGroup as='ul' aria-label='words-heading'>
       {
         words.map(word => {
           return (
@@ -16,6 +17,6 @@ export const AllWordContainer = ({ words }) => {
           )
         })
       }
-    </ul>
+    </ListGroup>
   )
 }

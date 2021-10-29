@@ -17,8 +17,10 @@ export const ProgressWord = ({ completeWord }) => {
 
   return (
     <div className='my-3 d-flex flex-column justify-content-center align-items-center'>
-      <p className='mb-1 text-muted'><small>Progreso word</small></p>
-      <ProgressBar now={progressWord} label={`${completeWord}/10`} className='text-secondary w-25' variant={colorProgress} />
+      <div>
+        <p className='mb-1 text-muted'><small>Progreso word</small></p>
+        <ProgressBar now={progressWord} label={`${completeWord}/10`} className='text-secondary w-100' variant={colorProgress} />
+      </div>
 
     </div>
   )

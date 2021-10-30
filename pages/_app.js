@@ -1,5 +1,7 @@
 import firebase from 'firebase/app'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import store from '../app/store'
+import { Provider } from 'react-redux'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDAh3ShBp_07zlrRhh7I_Z1gFDkwEmhi_E',
@@ -14,8 +16,12 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 
-function MyApp ({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  )
 }
 
 export default MyApp

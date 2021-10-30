@@ -9,8 +9,8 @@ export const AllWordContainer = ({ words }) => {
           return (
             <ItemListWord
               key={word.id}
-              word={word.wordEnglish}
-              count={word.count}
+              word={word.data.english}
+              count={word.data.count}
               handleRemove={() => console.log('remove')}
               handleEdit={() => console.log('edit')}
             />

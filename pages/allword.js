@@ -1,28 +1,16 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import { AllWordContainer } from '../container/allWordContainer/allWordContainer'
-
-export const words = [
-  {
-    wordSpanish: 'hola',
-    wordEnglish: 'hi',
-    id: '9737392',
-    count: 2
-  },
-  {
-    wordSpanish: 'adios',
-    wordEnglish: 'bye',
-    id: '97378768',
-    count: 5
-  },
-  {
-    wordSpanish: 'perro',
-    wordEnglish: 'dog',
-    id: '923423492',
-    count: 10
-  }
-]
+import { useSelector, useDispatch } from 'react-redux'
+import { getAllWord } from '../features/word/allWordSlice'
 
 const Home = () => {
+  const words = useSelector((state) => state.word.AllWord)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllWord())
+  }, [dispatch])
   return (
     <div>
       <Head>

@@ -2,13 +2,11 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 export const calculateProgress = (wordLength, totalNumberWord) => {
-
   return ((100 * totalNumberWord) / wordLength)
-
 
   // const woldMissing = (totalNumberWord - wordLength)
   // const calculate = (woldMissing / totalNumberWord) * 100
-  //return calculate
+  // return calculate
 }
 
 export const wordNextEnd = (word) => {
@@ -24,7 +22,6 @@ export const handleOnchage = (e, setWordSpanish) => {
 
 export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord) => {
   if (wordSpanish === word[showWord].data.spanish) {
-
     const message = {
       type: 'success',
       message: '✔️ Palabra correcta',
@@ -54,7 +51,6 @@ export const handleCheck = async (wordSpanish, word, showWord, setMessage, setNe
 
     setShowWord(0)
   } else {
-
     const message = {
       type: 'danger',
       message: '❌ icorecto la palacra corecta es',
@@ -104,32 +100,29 @@ export const handleshowTooltip = (setshowTooltip, setHasPushTooltip) => {
 }
 
 const randomNumber = (min, max) => {
-  return Math.floor((Math.random() * (max - min + 1)) + min);
-
+  return Math.floor((Math.random() * (max - min + 1)) + min)
 }
 
 export const newArray = (userSelect, array) => {
-  let inicialArray = array
+  const inicialArray = array
 
   // devolver todo el array si hay menos elemento de los que el usuario pide
   if (inicialArray.length <= userSelect) { return inicialArray }
 
   // el array que retornar
-  let newArray = []
+  const newArray = []
 
   // for de los elemento y extraemos random
   for (let b = 0; (b < userSelect); b++) {
-
     // tener un numero random desde 1 a el numero que tien el array inicial
 
-    let numberRandom = randomNumber(0, inicialArray.length - 1)
+    const numberRandom = randomNumber(0, inicialArray.length - 1)
 
     // push elemento select to newarray
     newArray.push(inicialArray[numberRandom])
 
-    // extraer elemento 
+    // extraer elemento
     const elemetExtract = inicialArray.splice(numberRandom, 1)
-
   }
 
   return newArray

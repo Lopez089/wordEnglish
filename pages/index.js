@@ -28,6 +28,4 @@ export default Home
 
 /* TODO:
 
-    migrar a ts
-
 */

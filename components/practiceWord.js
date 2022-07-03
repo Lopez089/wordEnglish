@@ -57,17 +57,19 @@ export const PracticeWord = () => {
             <section className='p-4 bg-light d-flex align-items-center'>
 
               {message === '' && !hasPushTooltip
-                ? (<div className='w-100 d-flex flex-row justify-content-around '>
-                  <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord)}>comprobar</ButtonOnclick>
-                  <Button onClick={() => haldleNext(setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
-                </div>)
+                ? (
+                  <div className='w-100 d-flex flex-row justify-content-around '>
+                    <ButtonOnclick disabled handleClick={() => handleCheck(wordSpanish, word, showWord, setMessage, setNewStateWord, setShowWord, setWord, newStateWord)}>comprobar</ButtonOnclick>
+                    <Button onClick={() => haldleNext(setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
+                  </div>)
 
                 : null}
 
               {hasPushTooltip || message !== ''
-                ? <div className='w-100 d-flex flex-column justify-items-center align-items-center'>
-                  <Button onClick={() => haldleNext(setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
-                </div>
+                ? (
+                  <div className='w-100 d-flex flex-column justify-items-center align-items-center'>
+                    <Button onClick={() => haldleNext(setHasPushTooltip, word, newStateWord, setWord, setNewStateWord, setMessage, setWordSpanish)}>siguiente</Button>
+                  </div>)
                 : null}
 
             </section>

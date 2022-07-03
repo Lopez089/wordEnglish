@@ -117,4 +117,5 @@ export default Home
 -cretae las constantes
 - refactor
 _ create un state globales
+- eleimnar component button
 */

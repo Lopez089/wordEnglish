@@ -1,9 +1,16 @@
 import { Box, useTheme } from '@chakra-ui/react'
 
+type Props = {
+    children: JSX.Element
+}
+type themeColors = {
+    primary: string
+    secondary: string
+}
 
-export const WrapMovil = ({ children }) => {
+export const WrapMovil: React.FC = ({ children }: Props): JSX.Element => {
     const theme = useTheme()
-    const { primary, secondary } = theme.colors
+    const { primary, secondary }: themeColors = theme.colors
 
     return (
         <Box
@@ -35,7 +42,3 @@ export const WrapMovil = ({ children }) => {
         </Box>
     )
 }
-//TODO:
-// usar los colores del theme
-//PONER TYPOS A LOS DATOS
-// refactor

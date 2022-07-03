@@ -5,10 +5,7 @@ import Link from 'next/link'
 import { FormAddWord } from '../components/formAddWord'
 import { HOME } from '../constants/index'
 
-type colors = {
-  primary: string
-  secondary: string
-}
+
 
 import { NextPage } from 'next'
 
@@ -16,7 +13,10 @@ const Home: NextPage = (): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const theme = useTheme()
   const { TITLE, CONTENT, GREETING, SECTION_HOME, BUTTON_ADD, SECTION_DASHBOARD } = HOME
-  const { primary, secondary }: colors = theme.colors
+  const { primary, secondary }: {
+    primary: string
+    secondary: string
+  } = theme.colors
 
   return (
     <>

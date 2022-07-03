@@ -3,16 +3,15 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useTheme, Input, Button, Text, Grid, Box } from '@chakra-ui/react'
 
-type theme = {
-  primary: string;
-  secondary: string
-}
 
 export const FormAddWord = () => {
   const [spanish, setSpanish] = useState('')
   const [english, setEnglish] = useState('')
   const theme = useTheme()
-  const { primary, secondary }: theme = theme.colors
+  const { primary, secondary }: {
+    primary: string;
+    secondary: string
+  } = theme.colors
 
   const handleOnchageSpanish = (e) => {
     setSpanish(e.target.value)

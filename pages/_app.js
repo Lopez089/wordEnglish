@@ -1,5 +1,8 @@
 import firebase from 'firebase/app'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from '../theme/theme'
+import { WrapMovil } from '../wrappers/wrapMovil'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDAh3ShBp_07zlrRhh7I_Z1gFDkwEmhi_E',
@@ -14,8 +17,16 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 
-function MyApp ({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <>
+      <ChakraProvider theme={theme}>
+        <WrapMovil>
+          <Component {...pageProps} />
+        </WrapMovil>
+      </ChakraProvider>
+    </>
+  )
 }
 
 export default MyApp

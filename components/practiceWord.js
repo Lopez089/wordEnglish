@@ -28,7 +28,8 @@ export const PracticeWord = () => {
   const { hasPushTooltip, setHasPushTooltip, totalNumberWord, progressBar, word, showWord, wordSpanish, message, target, showTooltip, newStateWord, setWord, handleOnchage, handleCheck, haldleNext, handleshowTooltip, setWordSpanish, setMessage, setNewStateWord, setShowWord, setshowTooltip } = useWordPractice()
   return (
     <>
-      {word.length === 0 && totalNumberWord !== 0 ? <Message message={messageFinish.message} type={messageFinish.type} />
+      {word.length === 0 && totalNumberWord !== 0
+        ? <Message message={messageFinish.message} type={messageFinish.type} />
         : <>
           <div className='p5 mb-3 mt-5'>
             <ProgressBar variant='warning' now={progressBar} />
@@ -50,9 +51,10 @@ export const PracticeWord = () => {
             <Form.Control ref={target} className='form-floating' size='lg' placeholder='Escriba en Español' onChange={(e) => handleOnchage(e, setWordSpanish)} type='text' value={wordSpanish} />
 
             {message !== ''
-              ? <Message message={message.message} type={message.type} word={message.word} /> : null}
+              ? <Message message={message.message} type={message.type} word={message.word} />
+              : null}
 
-            <section className='fixed-bottom p-4 bg-light d-flex align-items-center'>
+            <section className='p-4 bg-light d-flex align-items-center'>
 
               {message === '' && !hasPushTooltip
                 ? (<div className='w-100 d-flex flex-row justify-content-around '>

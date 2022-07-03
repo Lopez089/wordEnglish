@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import { useTheme, Box, Grid, Text, Flex, Avatar, Button } from '@chakra-ui/react'
+import { useTheme, useDisclosure, Box, Grid, Text, Flex, Avatar, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton } from '@chakra-ui/react'
 import { PlusSquareIcon, SettingsIcon, HamburgerIcon, ArrowUpIcon, EditIcon } from '@chakra-ui/icons'
-import FormAddWord from '../components/formAddWord'
 import Link from 'next/link'
+import { FormAddWord } from '../components/formAddWord'
 
 type colors = {
   primary: string
@@ -12,6 +12,7 @@ type colors = {
 import { NextPage } from 'next'
 
 const Home: NextPage = (): JSX.Element => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const theme = useTheme()
 
   const { primary, secondary }: colors = theme.colors
@@ -24,6 +25,14 @@ const Home: NextPage = (): JSX.Element => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      <Modal isOpen={isOpen} onClose={onClose} size='xs' isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Agregar nuevas palabras</ModalHeader>
+          <ModalCloseButton />
+          <FormAddWord />
+        </ModalContent>
+      </Modal>
       <Box
         as='main'
         bg='blackAlpha.50'
@@ -56,6 +65,7 @@ const Home: NextPage = (): JSX.Element => {
                 _hover={{
                   bg: primary
                 }}
+                onClick={onOpen}
               >
                 Agregar
               </Button>

@@ -4,7 +4,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { Form } from 'react-bootstrap'
 
-const FormAddWord = () => {
+export const FormAddWord = () => {
   const [spanish, setSpanish] = useState('')
   const [english, setEnglish] = useState('')
 
@@ -46,5 +46,3 @@ const FormAddWord = () => {
     </>
   )
 }
-
-export default FormAddWord

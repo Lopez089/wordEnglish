@@ -3,6 +3,7 @@ import { useTheme, useDisclosure, Box, Grid, Text, Flex, Avatar, Button, Modal, 
 import { PlusSquareIcon, SettingsIcon, HamburgerIcon, ArrowUpIcon, EditIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
 import { FormAddWord } from '../components/formAddWord'
+import { HOME } from '../constants/index'
 
 type colors = {
   primary: string
@@ -14,14 +15,14 @@ import { NextPage } from 'next'
 const Home: NextPage = (): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const theme = useTheme()
-
+  const { TITLE, CONTENT, GREETING, SECTION_HOME, BUTTON_ADD, SECTION_DASHBOARD } = HOME
   const { primary, secondary }: colors = theme.colors
 
   return (
     <>
       <Head>
-        <title>Home</title>
-        <meta name='description' content='Home app word english' />
+        <title>{TITLE}</title>
+        <meta name='description' content={CONTENT} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
@@ -47,7 +48,7 @@ const Home: NextPage = (): JSX.Element => {
                   Hola Juan 👋
                 </Text>
                 <Text color='gray.500'>
-                  Bienvenido a WordEnglish
+                  {GREETING}
                 </Text>
               </Box>
               <Avatar shadow='lg' name='juan Lopez' src='https://xsgames.co/randomusers/avatar.php?g=male' />
@@ -55,7 +56,7 @@ const Home: NextPage = (): JSX.Element => {
           </Box>
           <Grid bg='white' borderRadius='1rem 1rem 0 0' gridTemplateRows='15% 65%'>
             <Flex justify='space-around' align='center' >
-              <Text fontSize='1.2rem'>Dasboard</Text>
+              <Text fontSize='1.2rem'>{SECTION_HOME}</Text>
               <Button
                 size='xs'
                 bg={secondary}
@@ -67,7 +68,7 @@ const Home: NextPage = (): JSX.Element => {
                 }}
                 onClick={onOpen}
               >
-                Agregar
+                {BUTTON_ADD}
               </Button>
             </Flex>
             <Grid p='1.5rem' gridTemplateRows='1fr 1fr' gridTemplateColumns='1fr 1fr' gap='20px'>
@@ -76,7 +77,7 @@ const Home: NextPage = (): JSX.Element => {
                   <Flex justify="center" align="center" bg='white' borderRadius='50%' w='50px' h='50px'>
                     <EditIcon color='red.300' />
                   </Flex>
-                  <Text fontWeight='medium'>Practica</Text>
+                  <Text fontWeight='medium'>{SECTION_DASHBOARD[0]}</Text>
                 </Flex>
               </Link>
               <Link href='/allWord' >
@@ -84,7 +85,7 @@ const Home: NextPage = (): JSX.Element => {
                   <Flex justify="center" align="center" bg='white' borderRadius='50%' w='50px' h='50px'>
                     <HamburgerIcon color='blue.300' />
                   </Flex>
-                  <Text fontWeight='medium'>Todas Las Palabras</Text>
+                  <Text fontWeight='medium'>{SECTION_DASHBOARD[1]}</Text>
                 </Flex>
               </Link>
               <Link href='/statistics' >
@@ -92,7 +93,7 @@ const Home: NextPage = (): JSX.Element => {
                   <Flex justify="center" align="center" bg='white' borderRadius='50%' w='50px' h='50px'>
                     <ArrowUpIcon color='yellow.300' />
                   </Flex>
-                  <Text fontWeight='medium'>Estadistica</Text>
+                  <Text fontWeight='medium'>{SECTION_DASHBOARD[2]}</Text>
                 </Flex>
               </Link>
               <Link href='/config' >
@@ -100,7 +101,7 @@ const Home: NextPage = (): JSX.Element => {
                   <Flex justify="center" align="center" bg='white' borderRadius='50%' w='50px' h='50px'>
                     <SettingsIcon color='orange.300' />
                   </Flex>
-                  <Text fontWeight='medium'>Configuracion</Text>
+                  <Text fontWeight='medium'>{SECTION_DASHBOARD[3]}</Text>
                 </Flex>
               </Link>
             </Grid>
@@ -114,7 +115,9 @@ const Home: NextPage = (): JSX.Element => {
 export default Home
 
 /* TODO:
--cretae las constantes
+- FIX DOCUMENT
+- poner escribir nuevas palabras
+- index para todos los compoent etc
 - refactor
 _ create un state globales
 - eleimnar component button

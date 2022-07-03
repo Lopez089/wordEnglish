@@ -122,7 +122,7 @@ export const newArray = (userSelect, array) => {
     newArray.push(inicialArray[numberRandom])
 
     // extraer elemento
-    const elemetExtract = inicialArray.splice(numberRandom, 1)
+    // const elemetExtract = inicialArray.splice(numberRandom, 1)
   }
 
   return newArray
